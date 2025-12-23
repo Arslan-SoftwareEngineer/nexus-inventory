@@ -1,0 +1,167 @@
+/* MODERN ENTERPRISE THEME (SaaS Style) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette - Modern Indigo & Slate */
+    --primary: #4F46E5;       /* Indigo-600 */
+    --primary-hover: #4338ca; /* Indigo-700 */
+    --secondary: #64748B;     /* Slate-500 */
+    --success: #10B981;       /* Emerald-500 */
+    --danger: #EF4444;        /* Red-500 */
+    --warning: #F59E0B;       /* Amber-500 */
+    
+    /* Backgrounds */
+    --bg-body: #F3F4F6;       /* Light Gray (Professional background) */
+    --bg-card: #FFFFFF;
+    --bg-input: #F9FAFB;
+    
+    /* Typography */
+    --text-main: #111827;     /* Gray-900 (Not pure black) */
+    --text-muted: #6B7280;    /* Gray-500 */
+    
+    /* Spacing & Borders */
+    --radius: 12px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 1. Global Reset */
+* { box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; color: var(--text-main); letter-spacing: -0.025em; }
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* 2. Layout & Containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* 3. Navigation Bar (Sticky & Glassy) */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E5E7EB;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+}
+.brand { 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: var(--primary); 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+/* 4. Cards */
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #E5E7EB;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+/* Lift effect on hover */
+.card-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+
+/* 5. Inputs & Forms */
+.form-group { margin-bottom: 1.25rem; text-align: left; }
+label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-main); }
+
+input[type="text"], input[type="password"], input[type="number"], select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+    background-color: var(--bg-input);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: all 0.2s;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); /* Indigo Glow */
+    background-color: #fff;
+}
+
+/* 6. Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    gap: 0.5rem;
+}
+.btn-primary { background-color: var(--primary); color: white; box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2); }
+.btn-primary:hover { background-color: var(--primary-hover); box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3); }
+
+.btn-danger { background-color: #FEF2F2; color: var(--danger); border: 1px solid #FECACA; }
+.btn-danger:hover { background-color: #FEE2E2; }
+
+.btn-success { background-color: var(--success); color: white; }
+.btn-success:hover { background-color: #059669; }
+
+.btn-outline { background: transparent; border: 1px solid #D1D5DB; color: var(--text-muted); }
+.btn-outline:hover { border-color: var(--text-muted); background: #F9FAFB; color: var(--text-main); }
+
+/* 7. Professional Tables */
+.table-container {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #E5E7EB;
+}
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th { 
+    background-color: #F9FAFB; 
+    padding: 1rem 1.5rem; 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    color: var(--text-muted); 
+    border-bottom: 1px solid #E5E7EB;
+    font-weight: 600;
+}
+td { padding: 1rem 1.5rem; border-bottom: 1px solid #F3F4F6; color: var(--text-main); font-size: 0.9rem; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background-color: #F9FAFB; }
+
+/* 8. Layout Grids */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.grid-sidebar { display: grid; grid-template-columns: 350px 1fr; gap: 2rem; align-items: start; }
+@media (max-width: 900px) { .grid-sidebar { grid-template-columns: 1fr; } }
