@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {
-        // These names must match what you entered in Step 2
         maven 'Maven'
         jdk 'JAVA_HOME'
     }
@@ -11,15 +10,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from GitHub...'
-                // Jenkins automatically pulls code here
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                // UBUNTU CHANGE: We use 'sh' instead of 'bat'
-                // We also make the file executable just in case
                 sh 'mvn clean package -DskipTests'
             }
         }
@@ -30,15 +26,24 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to Tomcat...'
+                // REPLACE THIS PATH with your actual Tomcat webapps folder path
+                sh 'cp target/*.war /opt/tomcat/webapps/NexusInventory.war'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Build Successful! War file generated.'
+            echo 'Build & Deployment Successful!'
+            // Optional: Archive the artifact in Jenkins too
             archiveArtifacts artifacts: 'target/*.war', fingerprint: true
         }
         failure {
-            echo 'Build Failed. Please check the logs.'
+            echo 'Pipeline Failed. Check logs.'
         }
     }
 }
