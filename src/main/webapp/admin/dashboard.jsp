@@ -116,7 +116,7 @@
 <body>
 
     <nav class="navbar">
-        <div class="brand"><i class="fa-solid fa-layer-group"></i> NexusInventory</div>
+        <div class="brand"><i class="fa-solid fa-layer-group"></i> Nexus Inventory</div>
         <a href="${pageContext.request.contextPath}/LogoutServlet" class="btn-danger"><i class="fa-solid fa-power-off"></i> Logout</a>
     </nav>
 
