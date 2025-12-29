@@ -78,9 +78,6 @@ public class POSServlet extends HttpServlet {
         }
         
         // ---------------------------------------------------
-        // ACTION: CHECKOUT (We can implement this fully next)
-        // ---------------------------------------------------
-        // ---------------------------------------------------
         // ACTION: CHECKOUT (REAL LOGIC)
         // ---------------------------------------------------
         else if ("checkout".equals(action)) {
